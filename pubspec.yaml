@@ -31,7 +31,7 @@ dependencies:
   flutter_card_swipper: ^0.4.0
   rx_notifier: ^1.0.0
   delayed_display: ^2.0.0
-  visibility_detector: ^0.2.0
+  visibility_detector: ^0.4.0+2
   
 dev_dependencies:
   flutter_test:
