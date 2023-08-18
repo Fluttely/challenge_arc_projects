@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
-// import 'package:flutter_card_swipper/widgets/flutter_page_indicator/flutter_page_indicator.dart';
-// import 'package:flutter_card_swipper/widgets/transformer_page_view/index_controller.dart';
-// import 'package:flutter_card_swipper/widgets/transformer_page_view/parallax.dart';
-// import 'package:flutter_card_swipper/widgets/transformer_page_view/transformer_page_view.dart';
+
+
+
+
 import 'package:remottely/projects_page.dart';
 import 'package:remottely/utils/consts.dart';
 import 'package:remottely/utils/my_flutter_app_icons.dart';
@@ -32,21 +32,21 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  // MyHomePage({Key key, this.title}) : super(key: key);
+  
 
-  // final String title;
+  
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  // AnimationController _controller;
-  // Animation _animation;
+  
+  
 
-  SwiperController _swiperController = SwiperController();
+  
   SwiperController _swiperController2 = SwiperController();
-  // final = ProjetcsPageController();
+  
 
   @override
   void initState() {
@@ -58,24 +58,24 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         .then((value) => _swiperController2.move(2));
 
     super.initState();
-    // rxObserver(() {
-    //   print(home);
-    // });
-    //   _controller =
-    //       AnimationController(vsync: this, duration: Duration(milliseconds: 100));
-    //   _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
+    
+    
+    
+    
+    
+    
   }
 
   @override
   void dispose() {
-    // _controller.dispose();
-    _swiperController.dispose();
+    
+    
     _swiperController2.dispose();
     super.dispose();
   }
 
-  // int currentIndex = 0;
-  // bool homePage = true;
+  
+  
   bool boxSized = false;
   int isCurrentItem = 0;
   @override
@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ),
       ProjectsPage(isCurrentItem == 0 ? true : false, boxSized),
     ];
-    List<List<Widget>> lists = [images1]; //, images2];
+    List<List<Widget>> lists = [images1]; 
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -111,10 +111,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       fade: 0,
                       outer: true,
                       itemBuilder: (BuildContext context, int index2) {
-                        // setState(() {
-                        // currentIndex = index2;
-                        // });
-                        // print(currentIndex.toString());
+                        
+                        
+                        
+                        
                         return VisibilityDetector(
                           key: Key(index.toString()),
                           onVisibilityChanged: (VisibilityInfo info) {
@@ -125,15 +125,15 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                 isCurrentItem = index2;
                               });
                             }
-                            // else {
-                            //   isCurrentItem = 2;
-                            // }
+                            
+                            
+                            
                           },
                           child: lists[index][index2],
                         );
                       },
                       onIndexChanged: (_) {
-                        // home = false;
+                        
                       },
                       loop: false,
                       scrollDirection: Axis.vertical,
@@ -175,33 +175,37 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                       )
                                     : Container(),
                                 Spacer(flex: 2),
-                                InkWell(
-                                  onTap: () async {
-                                    if (_swiperController2.index != 0) {
-                                      _swiperController2.move(1);
-                                      await Future.delayed(
-                                              Duration(milliseconds: 300))
-                                          .then((value) =>
-                                              _swiperController2.move(0));
-                                      setState(() {
-                                        isCurrentItem = 0;
-                                      });
-                                      // _swiperController2.index = 0;
-                                    }
-                                  },
-                                  child: Text(
-                                    'home',
-                                    style: isCurrentItem == 0
-                                        ? TextStyle(
-                                            color: color1,
-                                            decoration:
-                                                TextDecoration.lineThrough,
-                                            fontWeight: FontWeight.bold,
-                                          )
-                                        : TextStyle(
-                                            decoration:
-                                                TextDecoration.underline,
-                                          ),
+                                
+                                Padding(
+                                  padding: const EdgeInsets.all(30.0),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      if (_swiperController2.index != 0) {
+                                        _swiperController2.move(1);
+                                        await Future.delayed(
+                                                Duration(milliseconds: 300))
+                                            .then((value) =>
+                                                _swiperController2.move(0));
+                                        setState(() {
+                                          isCurrentItem = 0;
+                                        });
+                                        
+                                      }
+                                    },
+                                    child: Text(
+                                      'home',
+                                      style: isCurrentItem == 0
+                                          ? TextStyle(
+                                              color: color1,
+                                              decoration:
+                                                  TextDecoration.lineThrough,
+                                              fontWeight: FontWeight.bold,
+                                            )
+                                          : TextStyle(
+                                              decoration:
+                                                  TextDecoration.underline,
+                                            ),
+                                    ),
                                   ),
                                 ),
                                 Spacer(
@@ -209,6 +213,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    SizedBox(height: 200,),
                                     InkWell(
                                       onTap: () async {
                                         if (_swiperController2.index != 2) {
@@ -221,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                               .then((value) =>
                                                   _swiperController2.move(2));
 
-                                          // _swiperController2.index = 0;
+                                          
                                         }
                                       },
                                       child: Text(
@@ -244,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                             ? 32
                                             : 16),
                                     isCurrentItem == 0
-                                        ? Container(width: 208) //169)
+                                        ? Container(width: 208) 
                                         : DelayedDisplay(
                                             delay: Duration(milliseconds: 500),
                                             child: Row(
@@ -296,54 +301,25 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                constraints.maxWidth < 600 && isCurrentItem != 0
-                                    ? Container()
-                                    : Text(
-                                        'about us',
-                                        style: TextStyle(
-                                          decoration: TextDecoration.underline,
-                                        ),
-                                      ),
+                               
                                 Spacer(flex: 31),
-                                // homePage
-                                //     ? Container()
-                                //     : DelayedDisplay(
-                                //         delay: Duration(milliseconds: 500),
-                                //         child: Column(
-                                //           children: [
-                                //             // SizedBox(height: 64),
-                                //             Text('all'),
-                                //             SizedBox(height: 32),
-                                //             Text('interior'),
-                                //             SizedBox(height: 32),
-                                //             Text('exterior'),
-                                //           ],
-                                //         ),
-                                //       ),
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                                 Spacer(flex: 113),
-                                SizedBox(
-                                  width: 300,
-                                  height: 300,
-                                  child: isCurrentItem == 0
-                                      ? DelayedDisplay(
-                                          delay: Duration(milliseconds: 500),
-                                          child: constraints.maxWidth >= 600
-                                              ? Text(
-                                                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                                                )
-                                              : Container(
-                                                padding: EdgeInsets.all(16),
-                                                color: Colors.white.withOpacity(0.96),
-                                                  child: Text(
-                                                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                                                    style: TextStyle(
-                                                      color: Colors.black,
-                                                    ),
-                                                  ),
-                                                ),
-                                        )
-                                      : Container(),
-                                ),
+                              
                                 Spacer(flex: 1),
                               ],
                             ),
@@ -366,7 +342,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                                   .then((value) =>
                                                       _swiperController2
                                                           .move(2));
-                                              // _swiperController2.index = 0;
+                                              
                                             }
                                           },
                                           icon: Icon(
@@ -388,7 +364,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                                   .then((value) =>
                                                       _swiperController2
                                                           .move(2));
-                                              // _swiperController2.index = 0;
+                                              
                                             }
                                           },
                                           icon: Icon(
@@ -399,31 +375,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                       )
                                     : Container(),
                                 Spacer(flex: 10),
-                                Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Connect with us'),
-                                      SizedBox(height: 24),
-                                      Row(children: [
-                                        Text(
-                                          'Facebook',
-                                          style: TextStyle(
-                                            decoration:
-                                                TextDecoration.underline,
-                                          ),
-                                        ),
-                                        SizedBox(width: 12),
-                                        Text(
-                                          'Instagram',
-                                          style: TextStyle(
-                                            decoration:
-                                                TextDecoration.underline,
-                                          ),
-                                        ),
-                                      ]),
-                                    ]),
-                                // Spacer(flex: 1),
+                             
+                                
                               ],
                             ),
                           ),
@@ -431,17 +384,17 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       ),
                     ),
                   ],
-                  // ),
+                  
                 );
               },
               onIndexChanged: (_) {
-                // home = false;
+                
               },
               fade: 0,
               outer: true,
               loop: false,
               scrollDirection: Axis.horizontal,
-              controller: _swiperController,
+              
               itemCount: lists.length,
             ),
           ),
